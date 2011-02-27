@@ -1,6 +1,8 @@
 # ABSTRACT: Models a category in the NewsReach API
 package WWW::NewsReach::Category;
 
+our $VERSION = '0.02';
+
 use Moose;
 
 has id => (
@@ -37,7 +39,7 @@ WWW::NewsReach::Category - Models a category in the NewsReach API
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 METHODS
 

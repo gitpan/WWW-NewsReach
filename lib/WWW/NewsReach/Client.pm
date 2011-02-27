@@ -1,5 +1,8 @@
+# ABSTRACT: LWP::UserAgent wrapper
 
 package WWW::NewsReach::Client;
+
+our $VERSION = '0.02';
 
 use Moose;
 
@@ -36,11 +39,11 @@ __END__
 
 =head1 NAME
 
-WWW::NewsReach::Client
+WWW::NewsReach::Client - LWP::UserAgent wrapper
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 NAME
 

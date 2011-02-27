@@ -1,6 +1,8 @@
 # ABSTRACT: Models a photo in the NewsReach API.
 package WWW::NewsReach::Photo;
 
+our $VERSION = '0.02';
+
 use Moose;
 
 use WWW::NewsReach::Photo::Instance;
@@ -20,6 +22,8 @@ has instances => (
     isa => 'ArrayRef[WWW::NewsReach::Photo::Instance]',
 );
 
+our $VERSION = 0.02;
+
 
 sub new_from_xml {
     my $class = shift;
@@ -33,11 +37,11 @@ sub new_from_xml {
 
     $self->{alt} = $xml->findnodes('//htmlAlt')->[0]->textContent;
 
-    foreach ( $xml->findnodes("//instance") ) {
-        push @{$self->{instances}},
-            WWW::NewsReach::Photo::Instance->new_from_xml( $_ );
+    foreach my $instance ( $xml->findnodes("//instance") ) {
+        my $photo =
+            WWW::NewsReach::Photo::Instance->new_from_xml( $instance );
+        push @{$self->{instances}}, $photo;
     }
-
     return $class->new( $self );
 }
 
@@ -52,7 +56,7 @@ WWW::NewsReach::Photo - Models a photo in the NewsReach API.
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 METHODS
 

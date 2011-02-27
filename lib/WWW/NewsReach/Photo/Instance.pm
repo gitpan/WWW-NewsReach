@@ -1,6 +1,8 @@
 # ABSTRACT: Models a photo instance in the NewsReach API
 package WWW::NewsReach::Photo::Instance;
 
+our $VERSION = '0.02';
+
 use Moose;
 
 use URI;
@@ -28,12 +30,12 @@ sub new_from_xml {
     my $self = {};
 
     foreach (qw[ width height ]) {
-        $self->{$_} = $xml->findnodes("//$_")->[0]->textContent;
+        $self->{$_} = $xml->findnodes(".//$_")->[0]->textContent;
     }
 
-    $self->{type} = $xml->findnodes("//type")->[0]->textContent;
+    $self->{type} = $xml->findnodes(".//type")->[0]->textContent;
 
-    $self->{url} = URI->new( $xml->findnodes("//url")->[0]->textContent );
+    $self->{url} = URI->new( $xml->findnodes(".//url")->[0]->textContent );
 
     return $class->new( $self );
 }
@@ -49,7 +51,7 @@ WWW::NewsReach::Photo::Instance - Models a photo instance in the NewsReach API
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 METHODS
 

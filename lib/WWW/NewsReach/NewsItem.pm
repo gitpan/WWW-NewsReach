@@ -1,6 +1,8 @@
 # ABSTRACT: Model a news article in the NewsReach API
 package WWW::NewsReach::NewsItem;
 
+our $VERSION = '0.02';
+
 use Moose;
 
 use XML::LibXML;
@@ -105,7 +107,7 @@ WWW::NewsReach::NewsItem - Model a news article in the NewsReach API
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 METHODS
 
