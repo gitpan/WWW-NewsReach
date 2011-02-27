@@ -1,7 +1,7 @@
 # ABSTRACT: Models a photo in the NewsReach API.
 package WWW::NewsReach::Photo;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use Moose;
 
@@ -21,8 +21,6 @@ has instances => (
     is => 'ro',
     isa => 'ArrayRef[WWW::NewsReach::Photo::Instance]',
 );
-
-our $VERSION = 0.02;
 
 
 sub new_from_xml {
@@ -56,7 +54,7 @@ WWW::NewsReach::Photo - Models a photo in the NewsReach API.
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 METHODS
 

@@ -2,7 +2,7 @@
 
 package WWW::NewsReach::Client;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use Moose;
 
@@ -43,7 +43,7 @@ WWW::NewsReach::Client - LWP::UserAgent wrapper
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 NAME
 
