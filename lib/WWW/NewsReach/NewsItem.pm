@@ -22,7 +22,7 @@ has $_ => (
 has $_ => (
     is  => 'ro',
     isa => 'DateTime',
-) for qw(publishDate lastModifiedDate);
+) for qw(publishDate lastModifiedDate publishTime);
 
 has id => (
     is  => 'ro',
@@ -52,7 +52,10 @@ sub new_from_xml {
     my $self = {};
 
     foreach (qw[id headline text state extract]) {
-        $self->{$_} = $xml->findnodes("//$_")->[0]->textContent;
+        # extract is optional
+        eval {
+            $self->{$_} = $xml->findnodes("//$_")->[0]->textContent;
+        };
     }
 
     my $iso8601 = DateTime::Format::ISO8601->new;
@@ -60,6 +63,7 @@ sub new_from_xml {
         my $dt_str    = $xml->findnodes("//$_")->[0]->textContent;
         my $dt        = $iso8601->parse_datetime( $dt_str );
         $self->{$_} = $dt;
+        eval { $self->{publishTime} = $dt->hms; }; # time is optional
     }
 
     my $photo_xml = $class->_get_related_xml( $xml, 'photos' );
@@ -107,7 +111,7 @@ WWW::NewsReach::NewsItem - Model a news article in the NewsReach API
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 METHODS
 

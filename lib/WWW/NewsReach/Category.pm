@@ -39,7 +39,7 @@ WWW::NewsReach::Category - Models a category in the NewsReach API
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 METHODS
 

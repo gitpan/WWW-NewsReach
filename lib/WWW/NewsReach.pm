@@ -133,7 +133,7 @@ WWW::NewsReach - Perl wrapper for the NewsReach API
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
