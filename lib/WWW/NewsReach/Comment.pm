@@ -1,7 +1,7 @@
 # ABSTRACT: Models a comment in the NewsReach API
 package WWW::NewsReach::Comment;
 
-our $VERSION = '0.03';
+our $VERSION = '0.05';
 
 use Moose;
 
@@ -51,7 +51,7 @@ WWW::NewsReach::Comment - Models a comment in the NewsReach API
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 METHODS
 
